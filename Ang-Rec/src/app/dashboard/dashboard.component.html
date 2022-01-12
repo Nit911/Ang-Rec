@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Residing City</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let userDetail of userDetails; let i=index">
+
+            <th>{{i+1}}</th>
+
+            <td *ngIf="edited">{{userDetail.name}}</td>
+            <td *ngIf="!edited"><input type="text" class="form-control" value="{{userDetail.name}}"></td>
+
+            <td *ngIf="edited">{{userDetail.email}}</td>
+            <td *ngIf="!edited"><input type="text" class="form-control" value="{{userDetail.email}}"></td>
+
+            <td *ngIf="edited">{{userDetail.address.city}}</td>
+            <td *ngIf="!edited"><input type="text" class="form-control" value="{{userDetail.address.city}}"></td>
+
+            <td><input type="button" class="btn btn-dark" *ngIf="edited" (click)="edit(userDetail.isEdit)" value="Edit"> &nbsp;
+
+                <input type="button" class="btn btn-dark" *ngIf="edited" (click)="cancel(userDetail.isEdit)" value="Cancel"> &nbsp;
+
+                <input type="button" class="btn btn-dark" *ngIf="!edited" (click)="save(userDetail.isEdit)" value="Save"></td>
+        </tr>
+    </tbody>
+</table>

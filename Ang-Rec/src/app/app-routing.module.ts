@@ -7,8 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
-
 
 const routes: Routes = [
   {path:"",component:RegisterComponent},
@@ -22,4 +20,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ HeaderComponent, LoginComponent, RegisterComponent, DashboardComponent, FooterComponent ]
+export const routingComponents = [ HeaderComponent, LoginComponent, RegisterComponent, DashboardComponent ]

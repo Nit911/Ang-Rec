@@ -47,11 +47,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit(value:any){
     if(this.value.Email == this.userData.Email){
+      console.log(value.Email, value.Passwords)
       if(this.value.Password == this.userData.Password){
-        DashboardComponent
+        console.log(value.Email, value.Passwords)
       }
     }
-    
+  }
+  
+  dashboard(){
+
   }
 
 }

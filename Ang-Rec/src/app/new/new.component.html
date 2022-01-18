@@ -1,0 +1,37 @@
+<p>{{title}}</p>
+<!-- <button type="button" (click)=onClick(value)>Click</button> -->
+<br><br>
+
+<table class="table">
+    <th>S.No</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>Email</th>
+    <tbody>
+        <tr *ngFor="let userDetail of userDetails; index as i">
+            <td>{{i+1}}</td>
+            <td>{{userDetail.Name}}</td>
+            <td>
+                <select class="form-control">
+                    <option *ngFor="let city of userDetail.city">{{city}}</option>
+                </select>
+            </td>
+            <td>{{userDetail.Email}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br><br>
+
+<form #Form=ngForm (ngSubmit)=onSubmit(Form.value)>
+    <label for="name">Enter Name</label>
+    <input type="text" class="form-control" placeholder="Name" name="Name" ngModel>
+
+    <label for="email">Enter Email Id</label>
+    <input type="email" class="form-control" placeholder="email@example.com" name="Email" ngModel>
+
+    <label for="city">Enter City</label>
+    <input type="text" class="form-control" placeholder="City" name="City" ngModel>
+
+    <button type="submit">Add</button>
+</form>

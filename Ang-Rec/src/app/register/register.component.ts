@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,16 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router : Router ) { }
 
   ngOnInit(): void {
   }
 
   userData : any = []
 
-  onSubmit(value:any){
-    console.log(value)
-    this.userData = this.userData.push(value)
-  }
+  value: any = []
 
+  onSubmit(value:any){
+    this.userData.push(value)
+    console.log(value)
+    value = null
+    alert("Registration is Successful")
+    this.router.navigate(['/Login'])
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router : Router ) { }
 
   ngOnInit(): void {
   }
@@ -43,19 +43,15 @@ export class LoginComponent implements OnInit {
     }
   ]
 
-  value: any;
-
   onSubmit(value:any){
-    if(this.value.Email == this.userData.Email){
-      console.log(value.Email, value.Passwords)
-      if(this.value.Password == this.userData.Password){
-        console.log(value.Email, value.Passwords)
-      }
-    }
+    console.log(value)
+    // if(value.Email == this.userData.Email){
+    //   console.log(value.Email, value.Password)
+    //   if(value.Password == this.userData.Password){
+    //     console.log(value.Email, value.Password)
+         alert("Login is Successful")
+         this.router.navigate(['/Dashboard'])
+    //   }
+    // }
   }
-  
-  dashboard(){
-
-  }
-
 }

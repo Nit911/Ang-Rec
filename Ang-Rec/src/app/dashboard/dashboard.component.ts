@@ -13,19 +13,23 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  edit(userDetail:any){
-    userDetail.isEdit = true
+  edit(userDetails:any){
+    userDetails.isEdit = true
   }
   
-  cancel(userDetail:any){
-    userDetail.isEdit = false
+  cancel(userDetails:any){
+    userDetails.isEdit = false
   }
 
-  save(userDetail:any){
-    userDetail.isEdit = false
-    alert("Update is Successful")
+  save(userDetails:any){
+    // userDetails.Name = this.userDetails.Name
+    // userDetails.Email =this.userDetails.Email
+    // userDetails.City = this.userDetails.City
+    // console.log(userDetails)
+    userDetails.isEdit = false
+    alert("Successfully updated")
   }
-
+  
   userDetails : any = [
     {
       "Name":"user1",
@@ -63,9 +67,12 @@ export class DashboardComponent implements OnInit {
   
   value : any = []
 
-  onSubmit(value:any){
+  updateTable(value:any){
     console.log(value)
-    this.userDetails  = this.userDetails.push(value)
+    let userDetail = value;
+    userDetail.isEdit = false;
+    this.userDetails.push(userDetail)
+    value = null    
   }
 
 }

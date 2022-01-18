@@ -1,6 +1,6 @@
 <p>{{title}}</p>
 <!-- <button type="button" (click)=onClick(value)>Click</button> -->
-<br><br>
+<br/><br/>
 
 <table class="table">
     <th>S.No</th>
@@ -12,8 +12,8 @@
             <td>{{i+1}}</td>
             <td>{{userDetail.Name}}</td>
             <td>
-                <select class="form-control">
-                    <option *ngFor="let city of userDetail.city">{{city}}</option>
+                <select class="form-select">
+                    <option *ngFor="let userDetail of userDetails">{{userDetail.City}}</option>
                 </select>
             </td>
             <td>{{userDetail.Email}}</td>
@@ -21,17 +21,19 @@
     </tbody>
 </table>
 
-<br><br>
+<br/><br/>
 
 <form #Form=ngForm (ngSubmit)=onSubmit(Form.value)>
     <label for="name">Enter Name</label>
-    <input type="text" class="form-control" placeholder="Name" name="Name" ngModel>
+    <input type="text" placeholder="Name" name="Name" ngModel>
 
     <label for="email">Enter Email Id</label>
-    <input type="email" class="form-control" placeholder="email@example.com" name="Email" ngModel>
+    <input type="email" placeholder="email@example.com" name="Email" ngModel>
 
     <label for="city">Enter City</label>
-    <input type="text" class="form-control" placeholder="City" name="City" ngModel>
+    <input type="text" placeholder="City" name="City" ngModel>
 
     <button type="submit">Add</button>
 </form>
+
+<br/><br/>

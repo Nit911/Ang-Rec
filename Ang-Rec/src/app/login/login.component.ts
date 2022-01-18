@@ -42,16 +42,18 @@ export class LoginComponent implements OnInit {
       "City":"city5"
     }
   ]
+  
+  dashboardComponent(){
+    
+  }
 
   onSubmit(value:any){
     console.log(value)
-    // if(value.Email == this.userData.Email){
-    //   console.log(value.Email, value.Password)
-    //   if(value.Password == this.userData.Password){
-    //     console.log(value.Email, value.Password)
-         alert("Login is Successful")
-         this.router.navigate(['/Dashboard'])
-    //   }
-    // }
+    this.userData.forEach((element:any) => {
+      if(element.Email.includes(value.Email)&& element.Password.includes(value.Password)){
+        this.dashboardComponent.log = false
+        this.router.navigate(['/Dashboard'])
+      }
+    });
   }
 }

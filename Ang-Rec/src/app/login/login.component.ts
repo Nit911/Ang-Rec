@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @Input()  login : boolean | undefined;
 
   constructor( private router : Router ) { }
 
@@ -42,16 +45,12 @@ export class LoginComponent implements OnInit {
       "City":"city5"
     }
   ]
-  
-  dashboardComponent(){
-    
-  }
 
   onSubmit(value:any){
     console.log(value)
     this.userData.forEach((element:any) => {
       if(element.Email.includes(value.Email)&& element.Password.includes(value.Password)){
-        this.dashboardComponent.log = false
+        this.login = false
         this.router.navigate(['/Dashboard'])
       }
     });
